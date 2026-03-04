@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "development": "pnpm run dev",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "tsc --noEmit"

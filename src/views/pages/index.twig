@@ -1,0 +1,162 @@
+{% extends "layouts.master" %}
+
+{% block content %}
+    {# Hero Section #}
+    {% component 'home.hero' %}
+
+    {# Trust Badges Row #}
+    <div class="bg-white border-b border-black/5 py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-soft-neutral text-primary">
+                        <i class="salla-icon-shield-check text-2xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xs font-bold">{{ 'services.authentic_products'|trans }}</span>
+                        <span class="text-[10px] text-text-muted">أصلية 100%</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-soft-neutral text-secondary">
+                        <i class="salla-icon-truck text-2xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xs font-bold">{{ 'services.fast_delivery'|trans }}</span>
+                        <span class="text-[10px] text-text-muted">خلال 24 ساعة</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-soft-neutral text-warning">
+                        <i class="salla-icon-secure-payment text-2xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xs font-bold">{{ 'services.secure_payment'|trans }}</span>
+                        <span class="text-[10px] text-text-muted">دفع آمن</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-soft-neutral text-primary">
+                        <i class="salla-icon-chat text-2xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xs font-bold">{{ 'product.pharmacist_support'|trans }}</span>
+                        <span class="text-[10px] text-text-muted">استشارة فورية</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# Category Grid #}
+    <section class="py-24 bg-slate-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-16 gap-6">
+                <div class="text-center md:text-right">
+                    <h2 class="text-3xl font-bold mb-2">{{ 'home.shop_by_category'|trans|default('تسوق حسب القسم') }}</h2>
+                    <p class="text-slate-500 text-sm">تصفح مجموعتنا الواسعة من المنتجات الصحية</p>
+                </div>
+                <a href="/categories" class="btn-pharmacy btn-secondary px-8 py-2 text-sm">{{ 'common.view_all'|trans }}</a>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+                {% set cats = [
+                    {name: 'الأدوية (OTC)', icon: 'medicine', color: 'bg-teal-50 text-teal-600'},
+                    {name: 'الفيتامينات', icon: 'pill', color: 'bg-cyan-50 text-cyan-600'},
+                    {name: 'العناية الشخصية', icon: 'user', color: 'bg-amber-50 text-amber-600'},
+                    {name: 'العناية بالطفل', icon: 'baby', color: 'bg-rose-50 text-rose-600'},
+                    {name: 'الأجهزة الطبية', icon: 'heart-pulse', color: 'bg-emerald-50 text-emerald-600'},
+                    {name: 'العناية بالبشرة', icon: 'sparkles', color: 'bg-sky-50 text-sky-600'}
+                ] %}
+                
+                {% for cat in cats %}
+                    <a href="/category" class="group flex flex-col items-center text-center">
+                        <div class="w-24 h-24 flex items-center justify-center rounded-full {{ cat.color }} mb-6 group-hover:scale-110 group-hover:shadow-xl transition-all duration-500">
+                            <i class="salla-icon-{{ cat.icon }} text-4xl"></i>
+                        </div>
+                        <h3 class="text-sm font-bold text-slate-700 group-hover:text-primary transition-colors">{{ cat.name }}</h3>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    {# Featured Products #}
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex items-end justify-between mb-12">
+                <h2 class="text-3xl font-bold">{{ 'home.featured_products'|trans|default('منتجات مختارة لك') }}</h2>
+                <a href="/products" class="text-sm font-bold text-primary hover:underline">{{ 'common.view_all'|trans }}</a>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {% for i in 1..4 %}
+                    {% include 'shared.product-card' with { product: {
+                        name: 'فيتامين سي 1000 مجم - 60 قرص فوار',
+                        url: '/product',
+                        image: {url: 'https://picsum.photos/seed/vit-c-' ~ i ~ '/400/400'},
+                        category: {name: 'الفيتامينات'},
+                        price: 45,
+                        on_sale: i % 2 == 0,
+                        regular_price: 60,
+                        requires_prescription: i == 3
+                    }} %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    {# Pharmacy Services #}
+    {% component 'home.pharmacy-services' %}
+
+    {# Promo Banner #}
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="relative h-[400px] rounded-[40px] overflow-hidden group">
+                <img 
+                    src="https://picsum.photos/seed/pharmacy-banner/1920/600" 
+                    alt="Promo Banner" 
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    referrerpolicy="no-referrer"
+                >
+                <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent flex items-center p-12">
+                    <div class="max-w-xl text-white">
+                        <span class="text-xs font-bold tracking-widest uppercase mb-4 block">عرض خاص لفترة محدودة</span>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-8 leading-tight">احصل على خصم 20% على جميع منتجات العناية بالبشرة</h2>
+                        <a href="/category" class="btn-pharmacy bg-white text-primary px-10">تسوق العرض الآن</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {# FAQ #}
+    <section class="py-24 bg-soft-neutral">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold mb-4">{{ 'common.faq'|trans }}</h2>
+                <p class="text-text-muted text-sm">{{ 'home.faq_desc'|trans|default('إليك بعض الإجابات على الأسئلة الأكثر شيوعاً.') }}</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                {% set faqs = [
+                    {q: 'كيف يمكنني رفع الوصفة الطبية؟', a: 'يمكنك رفع صورة الوصفة الطبية مباشرة من خلال زر "ارفع الوصفة" في الصفحة الرئيسية أو صفحة المنتج، وسيقوم فريقنا بمراجعتها والتواصل معك.'},
+                    {q: 'هل تتوفر خدمة التوصيل في جميع المناطق؟', a: 'نعم، نحن نوفر خدمة التوصيل السريع لجميع مناطق المملكة العربية السعودية.'},
+                    {q: 'ما هي سياسة الاسترجاع للمنتجات الطبية؟', a: 'وفقاً للوائح الصحية، لا يمكن استرجاع الأدوية والمنتجات الطبية بعد استلامها لضمان سلامة الجميع، إلا في حال وجود خطأ في الطلب أو تلف.'}
+                ] %}
+                
+                {% for faq in faqs %}
+                    <div class="bg-white rounded-xl border border-black/5 overflow-hidden">
+                        <button class="w-full p-6 text-right font-bold text-sm flex items-center justify-between hover:bg-soft-neutral transition-colors">
+                            {{ faq.q }}
+                            <i class="salla-icon-arrow-down text-xs opacity-30"></i>
+                        </button>
+                        <div class="px-6 pb-6 text-text-muted text-sm leading-relaxed">
+                            {{ faq.a }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,65 @@
+<div class="pharmacy-card group relative">
+    {# Badges #}
+    <div class="absolute top-4 right-4 z-10 flex flex-col gap-2">
+        {% if product.on_sale %}
+            <span class="bg-danger text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-lg">
+                {{ 'product.sale'|trans|default('خصم') }}
+            </span>
+        {% endif %}
+        {% if product.requires_prescription %}
+            <span class="badge-prescription shadow-sm">
+                <i class="salla-icon-prescription"></i>
+                {{ 'product.requires_prescription'|trans }}
+            </span>
+        {% endif %}
+        <span class="badge-authentic shadow-sm bg-white/90 backdrop-blur-sm">
+            <i class="salla-icon-shield-check"></i>
+            أصلي
+        </span>
+    </div>
+
+    {# Image Container #}
+    <a href="{{ product.url }}" class="block aspect-[4/5] overflow-hidden bg-slate-50 relative">
+        <img 
+            src="{{ product.image.url }}" 
+            alt="{{ product.name }}" 
+            class="w-full h-full object-contain p-8 transition-transform duration-700 group-hover:scale-110"
+            loading="lazy"
+        >
+        
+        {# Hover Overlay Actions #}
+        <div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+             <button class="w-12 h-12 flex items-center justify-center rounded-full bg-white text-primary shadow-xl hover:bg-primary hover:text-white transition-all transform translate-y-4 group-hover:translate-y-0 duration-300" aria-label="Quick View">
+                <i class="salla-icon-eye"></i>
+            </button>
+        </div>
+    </a>
+
+    {# Content #}
+    <div class="p-6">
+        <div class="flex items-center justify-between mb-3">
+            <span class="text-[10px] font-bold text-primary bg-primary/5 px-2 py-0.5 rounded uppercase tracking-widest">{{ product.category.name }}</span>
+            <div class="flex items-center gap-1 text-warning">
+                <i class="salla-icon-star text-[10px]"></i>
+                <span class="text-[10px] font-bold text-text-main">{{ product.rating|default('5.0') }}</span>
+            </div>
+        </div>
+        
+        <h3 class="text-sm font-bold mb-4 line-clamp-2 min-h-[40px] hover:text-primary transition-colors leading-snug">
+            <a href="{{ product.url }}">{{ product.name }}</a>
+        </h3>
+
+        <div class="flex items-center justify-between mt-auto">
+            <div class="flex flex-col">
+                {% if product.on_sale %}
+                    <span class="text-[10px] text-text-muted line-through opacity-60">{{ product.regular_price|money }}</span>
+                {% endif %}
+                <span class="text-lg font-bold text-primary">{{ product.price|money }}</span>
+            </div>
+            
+            <button class="w-10 h-10 flex items-center justify-center rounded-xl bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all active:scale-90" aria-label="{{ 'cart.add_to_cart'|trans }}">
+                <i class="salla-icon-cart-add"></i>
+            </button>
+        </div>
+    </div>
+</div>

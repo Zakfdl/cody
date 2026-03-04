@@ -1,0 +1,65 @@
+<header class="sticky top-0 w-full z-50 bg-white transition-all duration-500 ease-in-out">
+    {# Top Bar #}
+    <div class="top-bar bg-soft-neutral py-2 border-b border-black/5 transition-all duration-300">
+        <div class="container mx-auto px-4 flex justify-between items-center text-[10px] font-bold text-text-muted uppercase tracking-wider">
+            <div class="flex items-center gap-4">
+                <span class="flex items-center gap-1"><i class="salla-icon-truck"></i> {{ 'services.fast_delivery'|trans }}</span>
+                <span class="hidden md:flex items-center gap-1"><i class="salla-icon-shield-check"></i> {{ 'services.authentic_products'|trans }}</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="/lang/{{ theme.lang == 'ar' ? 'en' : 'ar' }}" class="hover:text-primary transition-colors">
+                    {{ theme.lang == 'ar' ? 'English' : 'العربية' }}
+                </a>
+                <a href="{{ store.contact_url }}" class="hover:text-primary transition-colors">{{ 'common.contact_us'|trans }}</a>
+            </div>
+        </div>
+    </div>
+
+    {# Main Header #}
+    <div class="container mx-auto px-4 h-20 flex items-center justify-between gap-8">
+        {# Logo #}
+        <a href="/" class="flex-shrink-0">
+            {% if store.logo %}
+                <img src="{{ store.logo }}" alt="{{ store.name }}" class="h-10 w-auto">
+            {% else %}
+                <span class="text-2xl font-bold text-primary flex items-center gap-1">
+                    <i class="salla-icon-heart-pulse"></i> Cody<span class="text-secondary">UI</span>
+                </span>
+            {% endif %}
+        </a>
+
+        {# Search Bar (Desktop) #}
+        <div class="hidden lg:flex flex-grow max-w-2xl">
+            {% include 'shared.search-bar' %}
+        </div>
+
+        {# Actions #}
+        <div class="flex items-center gap-2 md:gap-4">
+            <a href="{{ user.login_url }}" class="hidden md:flex items-center gap-2 text-sm font-bold hover:text-primary transition-colors">
+                <i class="salla-icon-user text-xl"></i>
+                <div class="flex flex-col leading-none">
+                    <span class="text-[10px] text-text-muted">{{ 'account.login'|trans }}</span>
+                    <span>{{ 'account.profile'|trans|default('حسابي') }}</span>
+                </div>
+            </a>
+            
+            <a href="{{ cart.url }}" class="relative p-3 bg-soft-neutral rounded-xl hover:bg-primary/10 hover:text-primary transition-all group">
+                <i class="salla-icon-cart text-xl"></i>
+                {% if cart.count > 0 %}
+                    <span class="absolute -top-1 -right-1 bg-danger text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-white">
+                        {{ cart.count }}
+                    </span>
+                {% endif %}
+            </a>
+
+            <button class="lg:hidden p-3 bg-soft-neutral rounded-xl" data-menu-toggle aria-label="Menu">
+                <i class="salla-icon-menu text-xl"></i>
+            </button>
+        </div>
+    </div>
+
+    {# Mobile Search Bar #}
+    <div class="lg:hidden container mx-auto px-4 pb-4">
+        {% include 'shared.search-bar' %}
+    </div>
+</header>

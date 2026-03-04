@@ -1,0 +1,41 @@
+<div class="mt-12 border-t border-slate-100 pt-12">
+    <div class="flex border-b border-slate-100 mb-8 overflow-x-auto no-scrollbar">
+        <button class="tab-item active" data-tab="desc">{{ 'product.description'|trans|default('الوصف') }}</button>
+        <button class="tab-item" data-tab="usage">{{ 'product.usage_instructions'|trans }}</button>
+        <button class="tab-item" data-tab="ingredients">{{ 'product.ingredients'|trans }}</button>
+        <button class="tab-item" data-tab="warnings">{{ 'product.warnings'|trans }}</button>
+    </div>
+
+    <div class="tab-content" id="tab-desc">
+        <div class="prose prose-slate max-w-none text-sm text-text-muted leading-relaxed">
+            {{ product.description|raw }}
+        </div>
+    </div>
+    
+    <div class="tab-content hidden" id="tab-usage">
+        <p class="text-sm text-text-muted leading-relaxed">{{ product.usage_instructions|default('يرجى اتباع إرشادات الطبيب أو الصيدلي.') }}</p>
+    </div>
+
+    <div class="tab-content hidden" id="tab-ingredients">
+        <p class="text-sm text-text-muted leading-relaxed">{{ product.ingredients|default('المكونات متوفرة على العبوة الخارجية.') }}</p>
+    </div>
+
+    <div class="tab-content hidden" id="tab-warnings">
+        <div class="p-4 bg-danger/5 rounded-xl border border-danger/10 text-danger text-xs leading-relaxed">
+            {{ product.warnings|default('يحفظ بعيداً عن متناول الأطفال.') }}
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('[data-tab]').forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.dataset.tab;
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+            document.getElementById('tab-' + target).classList.remove('hidden');
+            
+            document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+        });
+    });
+</script>

@@ -1,0 +1,53 @@
+{
+  "theme_name": "CodyUI Pharmacy",
+  "version": "1.0.0",
+  "author": "CodyUI",
+  "category": "Pharmacy / Health & Wellness",
+  "support_url": "https://support.codyui.com",
+  "engine": "twilight",
+  "features": [
+    "rtl",
+    "dark_mode",
+    "mega_menu",
+    "quick_view",
+    "wishlist",
+    "prescription_upload",
+    "pharmacist_chat"
+  ],
+  "components": [
+    {
+      "name": "home.hero",
+      "title": "Pharmacy Hero",
+      "icon": "salla-icon-image"
+    },
+    {
+      "name": "home.trust-badges",
+      "title": "Trust Badges",
+      "icon": "salla-icon-shield"
+    },
+    {
+      "name": "home.pharmacy-services",
+      "title": "Pharmacy Services",
+      "icon": "salla-icon-heart"
+    }
+  ],
+  "settings": {
+    "general": {
+      "rtl_default": true,
+      "primary_color": "#00A884",
+      "accent_color": "#007BFF",
+      "clinical_white": "#FFFFFF",
+      "soft_neutral": "#F8F9FA"
+    },
+    "typography": {
+      "font_family_ar": "IBM Plex Sans Arabic",
+      "font_family_en": "Inter"
+    },
+    "pharmacy": {
+      "enable_prescription_upload": true,
+      "enable_pharmacist_chat": true,
+      "disclaimer_text_ar": "هذا الموقع لا يقدم استشارات طبية. استشر طبيبك دائماً.",
+      "disclaimer_text_en": "This site does not provide medical advice. Always consult your doctor."
+    }
+  }
+}

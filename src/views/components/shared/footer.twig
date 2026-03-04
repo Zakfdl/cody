@@ -1,0 +1,79 @@
+<footer class="bg-soft-neutral border-t border-black/5 pt-20 pb-10 mt-auto">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            {# Store Info #}
+            <div class="space-y-6">
+                <a href="/" class="text-2xl font-bold text-primary flex items-center gap-1">
+                    <i class="salla-icon-heart-pulse"></i> Cody<span class="text-secondary">UI</span>
+                </a>
+                <p class="text-text-muted text-sm leading-relaxed">
+                    {{ store.description|default('صيدلية كودي يو آي - شريكك الموثوق في الصحة والجمال. نوفر لك أفضل المنتجات الطبية والعناية الشخصية بأعلى معايير الجودة.') }}
+                </p>
+                <div class="flex gap-4">
+                    {% for social in store.social %}
+                        <a href="{{ social.url }}" class="w-10 h-10 flex items-center justify-center rounded-lg bg-white border border-black/5 text-text-muted hover:bg-primary hover:text-white transition-all">
+                            <i class="salla-icon-{{ social.type }}"></i>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            {# Links #}
+            <div>
+                <h4 class="text-sm font-bold uppercase tracking-widest mb-8">{{ 'common.quick_links'|trans|default('روابط سريعة') }}</h4>
+                <ul class="space-y-4">
+                    {% for link in menu.footer %}
+                        <li><a href="{{ link.url }}" class="text-text-muted hover:text-primary transition-colors text-sm">{{ link.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {# Policies #}
+            <div>
+                <h4 class="text-sm font-bold uppercase tracking-widest mb-8">{{ 'common.policies'|trans|default('السياسات') }}</h4>
+                <ul class="space-y-4">
+                    <li><a href="/shipping" class="text-text-muted hover:text-primary transition-colors text-sm">{{ 'common.shipping_policy'|trans }}</a></li>
+                    <li><a href="/returns" class="text-text-muted hover:text-primary transition-colors text-sm">{{ 'common.return_policy'|trans }}</a></li>
+                    <li><a href="/privacy" class="text-text-muted hover:text-primary transition-colors text-sm">{{ 'common.privacy_policy'|trans|default('سياسة الخصوصية') }}</a></li>
+                    <li><a href="/terms" class="text-text-muted hover:text-primary transition-colors text-sm">{{ 'common.terms'|trans|default('الشروط والأحكام') }}</a></li>
+                </ul>
+            </div>
+
+            {# Newsletter #}
+            <div>
+                <h4 class="text-sm font-bold uppercase tracking-widest mb-8">{{ 'common.newsletter'|trans|default('النشرة البريدية') }}</h4>
+                <p class="text-text-muted text-sm mb-6">{{ 'common.newsletter_desc'|trans|default('اشترك معنا للحصول على آخر العروض والنصائح الصحية.') }}</p>
+                <form class="flex gap-2">
+                    <input type="email" placeholder="{{ 'common.email'|trans|default('البريد الإلكتروني') }}" class="bg-white border border-black/5 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none w-full">
+                    <button type="submit" class="btn-pharmacy btn-primary px-4">
+                        <i class="salla-icon-send"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        {# Bottom Bar #}
+        <div class="pt-10 border-t border-black/5 flex flex-col md:flex-row items-center justify-between gap-6">
+            <p class="text-text-muted text-[10px] font-bold uppercase tracking-widest">
+                &copy; {{ "now"|date("Y") }} {{ store.name }}. {{ 'common.all_rights_reserved'|trans|default('جميع الحقوق محفوظة') }}.
+            </p>
+            
+            {# Payment Methods #}
+            <div class="flex items-center gap-4 opacity-50 grayscale hover:grayscale-0 transition-all">
+                <img src="https://cdn.salla.sa/assets/images/payments/visa.svg" alt="Visa" class="h-4">
+                <img src="https://cdn.salla.sa/assets/images/payments/mastercard.svg" alt="Mastercard" class="h-4">
+                <img src="https://cdn.salla.sa/assets/images/payments/mada.svg" alt="Mada" class="h-4">
+                <img src="https://cdn.salla.sa/assets/images/payments/apple-pay.svg" alt="Apple Pay" class="h-4">
+            </div>
+        </div>
+
+        {# Medical Disclaimer #}
+        <div class="mt-10 p-4 bg-white rounded-lg border border-black/5 text-center">
+            <p class="text-[10px] text-text-muted leading-relaxed">
+                {{ theme.settings.pharmacy.disclaimer_text_ar }}
+                <br>
+                <span class="opacity-50">{{ theme.settings.pharmacy.disclaimer_text_en }}</span>
+            </p>
+        </div>
+    </div>
+</footer>

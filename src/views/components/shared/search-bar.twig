@@ -1,0 +1,22 @@
+<form action="/search" method="GET" class="relative w-full group">
+    <input 
+        type="text" 
+        name="q" 
+        placeholder="{{ 'search.placeholder'|trans }}" 
+        class="w-full bg-soft-neutral border border-black/5 rounded-xl px-6 py-4 pr-14 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary focus:bg-white outline-none transition-all"
+        aria-label="{{ 'search.placeholder'|trans }}"
+    >
+    <div class="absolute right-5 top-1/2 -translate-y-1/2 text-text-muted group-focus-within:text-primary transition-colors">
+        <i class="salla-icon-search text-xl"></i>
+    </div>
+    
+    {# Quick Search Suggestions (Hidden by default) #}
+    <div class="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-black/5 p-4 hidden group-focus-within:block z-[100]">
+        <h4 class="text-[10px] font-bold text-text-muted uppercase tracking-widest mb-4">عمليات بحث شائعة</h4>
+        <div class="flex flex-wrap gap-2">
+            {% for tag in ['فيتامين سي', 'كمامات', 'معقم يدين', 'أوميغا 3', 'بندول'] %}
+                <a href="/search?q={{ tag }}" class="px-3 py-1 bg-soft-neutral rounded-md text-xs hover:bg-primary/10 hover:text-primary transition-all">{{ tag }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</form>

@@ -1,0 +1,45 @@
+{
+  "cart": {
+    "title": "سلة التسوق",
+    "empty": "سلة التسوق فارغة حالياً",
+    "checkout": "إتمام عملية الشراء",
+    "add_to_cart": "أضف للسلة",
+    "buy_now": "اشترِ الآن",
+    "items_count": "{count} منتجات"
+  },
+  "product": {
+    "requires_prescription": "يتطلب وصفة طبية",
+    "upload_prescription": "ارفع الوصفة الطبية",
+    "pharmacist_support": "تحدث مع الصيدلي",
+    "ingredients": "المكونات",
+    "usage_instructions": "طريقة الاستخدام",
+    "warnings": "تحذيرات هامة",
+    "related_products": "منتجات ذات صلة",
+    "out_of_stock": "غير متوفر حالياً",
+    "in_stock": "متوفر في المخزون"
+  },
+  "search": {
+    "placeholder": "ابحث عن دواء، فيتامينات، أو منتجات العناية...",
+    "results": "نتائج البحث عن: {query}",
+    "no_results": "لم يتم العثور على نتائج"
+  },
+  "account": {
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب جديد",
+    "wishlist": "قائمة الأمنيات",
+    "orders": "طلباتي"
+  },
+  "services": {
+    "fast_delivery": "توصيل سريع وآمن",
+    "authentic_products": "منتجات أصلية 100%",
+    "secure_payment": "دفع آمن ومشفر",
+    "refill_reminder": "تذكير بإعادة التعبئة"
+  },
+  "common": {
+    "view_all": "عرض الكل",
+    "contact_us": "اتصل بنا",
+    "faq": "الأسئلة الشائعة",
+    "shipping_policy": "سياسة الشحن",
+    "return_policy": "سياسة الاستبدال والاسترجاع"
+  }
+}

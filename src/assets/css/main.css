@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0D9488; /* Refined Teal/Green */
+  --color-secondary: #0891B2; /* Trust Cyan */
+  --color-accent: #14B8A6; /* Soft Mint */
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+  --color-clinical-white: #FFFFFF;
+  --color-soft-neutral: #F1F5F9;
+  --color-text-main: #0F172A;
+  --color-text-muted: #64748B;
+  
+  --font-sans: "IBM Plex Sans Arabic", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --radius-pharmacy: 1rem;
+}
+
+@layer base {
+  html {
+    @apply text-text-main bg-white;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans antialiased;
+  }
+}
+
+@layer components {
+  .btn-pharmacy {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-pharmacy font-bold transition-all duration-300 active:scale-95 cursor-pointer;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20;
+  }
+
+  .btn-secondary {
+    @apply bg-white border-2 border-primary text-primary hover:bg-primary/5;
+  }
+
+  .pharmacy-card {
+    @apply bg-white rounded-pharmacy border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden;
+  }
+
+  .badge-prescription {
+    @apply bg-danger/10 text-danger text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 border border-danger/20;
+  }
+  
+  .badge-authentic {
+    @apply bg-primary/10 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 border border-primary/20;
+  }
+
+  .tab-item {
+    @apply px-6 py-3 text-sm font-bold text-text-muted border-b-2 border-transparent hover:text-primary transition-all cursor-pointer;
+  }
+  
+  .tab-item.active {
+    @apply text-primary border-primary bg-primary/5;
+  }
+}

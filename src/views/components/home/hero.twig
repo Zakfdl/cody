@@ -1,0 +1,73 @@
+<section class="relative min-h-[600px] lg:h-[80vh] flex items-center overflow-hidden bg-slate-50">
+    {# Decorative Elements #}
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-primary/5 rounded-l-[100px] -mr-24 transform rotate-12 z-0"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-secondary/5 rounded-full -ml-32 -mb-32 z-0"></div>
+
+    {# Content #}
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="max-w-xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold tracking-widest uppercase rounded-full mb-8">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                    </span>
+                    {{ 'home.pharmacy_online'|trans|default('صيدلية أونلاين موثوقة') }}
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl font-bold mb-8 leading-[1.15] text-slate-900">
+                    {{ component.title|default('رعايتكم الصحية هي أولويتنا القصوى') }}
+                </h1>
+                
+                <p class="text-lg text-slate-600 mb-10 leading-relaxed">
+                    {{ component.description|default('اكتشف مجموعة واسعة من الأدوية والمكملات الغذائية ومنتجات العناية الشخصية الأصلية 100% مع خدمة التوصيل السريع.') }}
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center gap-4">
+                    <a href="/products" class="btn-pharmacy btn-primary w-full sm:w-auto px-12 py-4 text-lg">
+                        {{ 'common.shop_now'|trans|default('تسوق الآن') }}
+                    </a>
+                    <a href="/offers" class="btn-pharmacy btn-secondary w-full sm:w-auto px-12 py-4 text-lg">
+                        {{ 'common.view_offers'|trans|default('عرض العروض') }}
+                    </a>
+                </div>
+
+                <div class="mt-12 flex flex-wrap items-center gap-8">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-primary">
+                            <i class="salla-icon-shield-check"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">منتجات أصلية</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-secondary">
+                            <i class="salla-icon-truck"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">توصيل سريع</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hidden lg:block relative">
+                <div class="relative z-10 rounded-[40px] overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <img 
+                        src="https://picsum.photos/seed/pharmacy-hero-new/800/1000" 
+                        alt="Pharmacy Hero" 
+                        class="w-full h-auto"
+                        referrerpolicy="no-referrer"
+                    >
+                </div>
+                {# Floating Badges #}
+                <div class="absolute -top-6 -left-6 z-20 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce-slow">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                        <i class="salla-icon-heart-pulse text-2xl"></i>
+                    </div>
+                    <div>
+                        <div class="text-[10px] font-bold text-slate-400 uppercase">دعم صيدلي</div>
+                        <div class="text-sm font-bold">متاح 24/7</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

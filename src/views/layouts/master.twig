@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="{{ theme.lang|default('ar') }}" dir="{{ theme.dir|default('rtl') }}" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    {# SEO #}
+    <title>{% block title %}{{ store.name }}{% endblock %}</title>
+    <meta name="description" content="{{ store.description }}">
+    <link rel="canonical" href="{{ theme.canonical_url }}">
+    
+    {# Fonts #}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    {# Styles #}
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    {% block styles %}{% endblock %}
+    
+    {% hook 'head' %}
+</head>
+<body class="flex flex-col min-h-full bg-clinical-white selection:bg-primary/20">
+    
+    {# Skip to content #}
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 rounded-lg z-[100]">
+        {{ 'common.skip_to_content'|trans|default('تخطي إلى المحتوى') }}
+    </a>
+
+    {# Header #}
+    {% include 'shared.header' %}
+
+    <main id="main-content" class="flex-grow">
+        {% block content %}{% endblock %}
+    </main>
+
+    {# Footer #}
+    {% include 'shared.footer' %}
+
+    {# Mobile Navigation Menu #}
+    {% include 'shared.mobile-menu' %}
+
+    {# Scripts #}
+    <script src="{{ asset('js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
+    
+    {% hook 'footer' %}
+</body>
+</html>

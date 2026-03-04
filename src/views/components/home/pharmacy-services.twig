@@ -1,0 +1,54 @@
+<section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2 class="text-3xl font-bold mb-4">{{ 'home.pharmacy_services'|trans|default('خدماتنا الصيدلانية') }}</h2>
+            <p class="text-text-muted text-sm leading-relaxed">
+                {{ 'home.pharmacy_services_desc'|trans|default('نحن هنا لخدمتك بأفضل الطرق الممكنة لضمان راحتك وسلامتك.') }}
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {# Chat with Pharmacist #}
+            <div class="p-8 rounded-2xl bg-soft-neutral border border-black/5 hover:border-primary transition-all group">
+                <div class="w-16 h-16 flex items-center justify-center rounded-xl bg-primary/10 text-primary mb-8 group-hover:bg-primary group-hover:text-white transition-all">
+                    <i class="salla-icon-chat text-3xl"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-4">{{ 'product.pharmacist_support'|trans }}</h3>
+                <p class="text-sm text-text-muted leading-relaxed mb-6">
+                    {{ 'home.chat_desc'|trans|default('تحدث مباشرة مع صيادلتنا الخبراء للحصول على استشارة فورية حول الأدوية والمنتجات.') }}
+                </p>
+                <button class="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-4 transition-all">
+                    {{ 'common.start_chat'|trans|default('ابدأ المحادثة') }} <i class="salla-icon-arrow-left"></i>
+                </button>
+            </div>
+
+            {# Prescription Upload #}
+            <div class="p-8 rounded-2xl bg-soft-neutral border border-black/5 hover:border-secondary transition-all group">
+                <div class="w-16 h-16 flex items-center justify-center rounded-xl bg-secondary/10 text-secondary mb-8 group-hover:bg-secondary group-hover:text-white transition-all">
+                    <i class="salla-icon-prescription text-3xl"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-4">{{ 'product.upload_prescription'|trans }}</h3>
+                <p class="text-sm text-text-muted leading-relaxed mb-6">
+                    {{ 'home.upload_desc'|trans|default('ارفع صورة وصفتك الطبية وسنقوم بتجهيزها لك وتوصيلها في أسرع وقت ممكن.') }}
+                </p>
+                <button class="text-secondary font-bold text-sm flex items-center gap-2 group-hover:gap-4 transition-all" data-upload-prescription>
+                    {{ 'common.upload_now'|trans|default('ارفع الآن') }} <i class="salla-icon-arrow-left"></i>
+                </button>
+            </div>
+
+            {# Refill Reminder #}
+            <div class="p-8 rounded-2xl bg-soft-neutral border border-black/5 hover:border-warning transition-all group">
+                <div class="w-16 h-16 flex items-center justify-center rounded-xl bg-warning/10 text-warning mb-8 group-hover:bg-warning group-hover:text-white transition-all">
+                    <i class="salla-icon-clock text-3xl"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-4">{{ 'services.refill_reminder'|trans }}</h3>
+                <p class="text-sm text-text-muted leading-relaxed mb-6">
+                    {{ 'home.refill_desc'|trans|default('لا تقلق بشأن نفاذ أدويتك، سنقوم بتذكيرك بموعد إعادة تعبئة وصفتك الطبية القادم.') }}
+                </p>
+                <button class="text-warning font-bold text-sm flex items-center gap-2 group-hover:gap-4 transition-all">
+                    {{ 'common.learn_more'|trans|default('تعرف على المزيد') }} <i class="salla-icon-arrow-left"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

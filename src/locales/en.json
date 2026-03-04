@@ -1,0 +1,45 @@
+{
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is currently empty",
+    "checkout": "Proceed to Checkout",
+    "add_to_cart": "Add to Cart",
+    "buy_now": "Buy Now",
+    "items_count": "{count} items"
+  },
+  "product": {
+    "requires_prescription": "Requires Prescription",
+    "upload_prescription": "Upload Prescription",
+    "pharmacist_support": "Chat with Pharmacist",
+    "ingredients": "Ingredients",
+    "usage_instructions": "Usage Instructions",
+    "warnings": "Important Warnings",
+    "related_products": "Related Products",
+    "out_of_stock": "Out of Stock",
+    "in_stock": "In Stock"
+  },
+  "search": {
+    "placeholder": "Search for medicine, vitamins, or care products...",
+    "results": "Search results for: {query}",
+    "no_results": "No results found"
+  },
+  "account": {
+    "login": "Login",
+    "register": "Register",
+    "wishlist": "Wishlist",
+    "orders": "My Orders"
+  },
+  "services": {
+    "fast_delivery": "Fast & Safe Delivery",
+    "authentic_products": "100% Authentic Products",
+    "secure_payment": "Secure & Encrypted Payment",
+    "refill_reminder": "Refill Reminder"
+  },
+  "common": {
+    "view_all": "View All",
+    "contact_us": "Contact Us",
+    "faq": "FAQ",
+    "shipping_policy": "Shipping Policy",
+    "return_policy": "Return & Refund Policy"
+  }
+}

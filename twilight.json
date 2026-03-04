@@ -1,37 +1,67 @@
 {
-  "name": "CodyUI Pharmacy",
   "version": "1.0.0",
-  "author": "CodyUI",
+  "theme_name": "CodyUI Pharmacy",
+  "repo_url": "https://github.com/Zakfdl/cody",
   "support_url": "https://support.codyui.com",
 
+  "settings": [
+    {
+      "type": "boolean",
+      "label": "تفعيل RTL افتراضيًا",
+      "id": "rtl_default",
+      "format": "switch",
+      "selected": true
+    },
+    {
+      "type": "string",
+      "label": "اللون الأساسي",
+      "id": "primary_color",
+      "format": "color",
+      "value": "#00A884"
+    },
+    {
+      "type": "string",
+      "label": "اللون المساعد",
+      "id": "accent_color",
+      "format": "color",
+      "value": "#007BFF"
+    }
+  ],
+
   "features": [
-    "rtl",
-    "mega_menu",
-    "quick_view",
-    "wishlist"
+    "component-featured-products",
+    "component-fixed-banner",
+    "component-products-slider",
+    "component-testimonials",
+    "component-store-features",
+    "filters"
   ],
 
   "components": [
     {
-      "name": "home.hero",
-      "title": "Pharmacy Hero",
-      "icon": "salla-icon-image"
-    },
-    {
-      "name": "home.trust-badges",
-      "title": "Trust Badges",
-      "icon": "salla-icon-shield"
-    },
-    {
-      "name": "home.pharmacy-services",
-      "title": "Pharmacy Services",
-      "icon": "salla-icon-heart"
+      "name": "pharmacy-hero",
+      "title": "هيدر الصيدلية (CodyUI)",
+      "icon": "sicon-image-carousel",
+      "path": "home.pharmacy-hero",
+      "fields": [
+        {
+          "id": "title",
+          "type": "string",
+          "label": "العنوان"
+        },
+        {
+          "id": "subtitle",
+          "type": "string",
+          "format": "textarea",
+          "label": "الوصف"
+        },
+        {
+          "id": "image",
+          "type": "string",
+          "format": "image",
+          "label": "صورة"
+        }
+      ]
     }
-  ],
-
-  "settings": []
-<<<<<<< HEAD
+  ]
 }
-=======
-}
->>>>>>> e945e99573bc55a22923fbf989d4f53fedce109f
